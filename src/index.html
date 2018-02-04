@@ -1,10 +1,128 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Webpack ES6 Boilerplate</title>
-  </head>
-  <body>
-    <div class="hello" id="root"></div>
-  </body>
-</html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>Movie Surfer</title>
+  <style type="text/css">
+    .container .slider .photo,
+    .container .actorList .actor .thumbnail {
+      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+EDbWh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjkwRjRFQ0I4OEQwMUUwMTE4QTJEQzRFNjc4RUJBM0Q4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjJBM0EyOTU3NzkzMzExRTQ5M0MyRUQxNTRDNzc5OEQ1IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjJBM0EyOTU2NzkzMzExRTQ5M0MyRUQxNTRDNzc5OEQ1IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzQgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjE1MDNCMDcxMEEzNzExRTQ4MUM4OTJCRjQzOUYyN0UxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjE1MDNCMDcyMEEzNzExRTQ4MUM4OTJCRjQzOUYyN0UxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8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');
+    }
+  </style>
+</head>
+
+<body>
+  <div id="interactivepage" class="interactivepage">
+    <object standby="loading data" id="contentarea" title="loading" type="text/html" data=""></object>
+  </div>
+  <div class="appView">
+    <div class="topbar">
+      <div class="title truncate" id="title">...</div>
+      <div id="sm1" data-menu-link="sharemenu" class="sharemenu">...</div>
+      <div class="otherinfo truncate">
+        <span class="maturityrating" id="maturity">...</span>
+        <span id="otherinfo" class="truncate">...</span>
+      </div>
+    </div>
+    <div class="tabbar sticky">
+      <div class="tabs">
+        <div class="tablinks active" data-id="OverView">Overview</div>
+        <div class="tablinks" data-id="Cast">Cast</div>
+        <div class="tabselector"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tabcontent">
+        <div class="content" id="OverView">
+          <div id="slider" class="slider">
+            <div id="poster" class="photo"></div>
+            <div id="poster" class="photo"></div>
+            <div id="poster" class="photo"></div>
+            <div id="poster" class="photo"></div>
+            <div id="poster" class="photo"></div>
+            <div id="poster" class="photo"></div>
+          </div>
+
+          <div class="morecontent">
+            <div class="ratingrow">
+              <div class="rating divider">
+                <div>
+                  <div class="score" id="imdbscore"></div>
+                  <div class="source" id="imdbsource"></div>
+                </div>
+              </div>
+              <div class="rating divider">
+                <div>
+                  <div class="score" id="metascore"></div>
+                  <div class="source" id="metasource"></div>
+                </div>
+              </div>
+              <div class="rating">
+                <div>
+                  <div class="score" id="rottenscore"></div>
+                  <div class="source" id="rottensource"></div>
+                </div>
+              </div>
+            </div>
+            <div class="plot" id="plot">...</div>
+          </div>
+
+          <span>
+            <br/>
+            <b>
+              <u>Dummy Content to enable scrolling</u>
+            </b>
+            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id velit eget risus bibendum convallis ac
+            id augue. Aenean efficitur augue est, maximus venenatis tortor tempor vel. Aliquam dictum dolor velit, non pharetra
+            velit consequat eget. Proin eu venenatis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+            posuere cubilia Curae; Pellentesque posuere erat a elit condimentum finibus. Vivamus a malesuada mauris, non
+            placerat lorem. Donec at eleifend lorem. Sed tempor, tortor quis dapibus sodales, neque arcu sagittis tellus,
+            ac volutpat ex risus sed dolor. Vivamus in odio pulvinar, interdum urna eu, suscipit ante. Morbi venenatis rhoncus
+            lectus in gravida. Pellentesque laoreet enim at molestie maximus. Morbi eget sem elit. Donec pharetra tincidunt
+            ornare. Nullam erat metus, interdum quis placerat quis, porta id sapien. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vestibulum id velit eget risus bibendum convallis ac id augue. Aenean efficitur augue est, maximus
+            venenatis tortor tempor vel. Aliquam dictum dolor velit, non pharetra velit consequat eget. Proin eu venenatis
+            purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque posuere
+            erat a elit condimentum finibus. Vivamus a malesuada mauris, non placerat lorem. Donec at eleifend lorem. Sed
+            tempor, tortor quis dapibus sodales, neque arcu sagittis tellus, ac volutpat ex risus sed dolor. Vivamus in odio
+            pulvinar, interdum urna eu, suscipit ante. Morbi venenatis rhoncus lectus in gravida. Pellentesque laoreet enim
+            at molestie maximus. Morbi eget sem elit. Donec pharetra tincidunt ornare. Nullam erat metus, interdum quis placerat
+            quis, porta id sapien.
+          </span>
+        </div>
+        <div class="content" id="Cast">
+          <div id="actorList" class="actorList"></div>
+        </div>
+      </div>
+      <div id="sharemenu" class="menu" data-visible="false">
+        <ul>
+          <li>Share</li>
+          <li>Send Feedback</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="actorView">
+    <p>
+      <div class="actorname" id="name"></div>
+    </p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id velit eget risus bibendum convallis ac id augue. Aenean
+    efficitur augue est, maximus venenatis tortor tempor vel. Aliquam dictum dolor velit, non pharetra velit consequat eget.
+    Proin eu venenatis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque
+    posuere erat a elit condimentum finibus. Vivamus a malesuada mauris, non placerat lorem. Donec at eleifend lorem. Sed
+    tempor, tortor quis dapibus sodales, neque arcu sagittis tellus, ac volutpat ex risus sed dolor. Vivamus in odio pulvinar,
+    interdum urna eu, suscipit ante. Morbi venenatis rhoncus lectus in gravida. Pellentesque laoreet enim at molestie maximus.
+    Morbi eget sem elit. Donec pharetra tincidunt ornare. Nullam erat metus, interdum quis placerat quis, porta id sapien.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id velit eget risus bibendum convallis ac id augue.
+    Aenean efficitur augue est, maximus venenatis tortor tempor vel. Aliquam dictum dolor velit, non pharetra velit consequat
+    eget. Proin eu venenatis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+    Pellentesque posuere erat a elit condimentum finibus. Vivamus a malesuada mauris, non placerat lorem. Donec at eleifend
+    lorem. Sed tempor, tortor quis dapibus sodales, neque arcu sagittis tellus, ac volutpat ex risus sed dolor. Vivamus in
+    odio pulvinar, interdum urna eu, suscipit ante. Morbi venenatis rhoncus lectus in gravida. Pellentesque laoreet enim
+    at molestie maximus. Morbi eget sem elit. Donec pharetra tincidunt ornare. Nullam erat metus, interdum quis placerat
+    quis, porta id sapien.
+  </div>
+</body>
+<html>

@@ -1,0 +1,33 @@
+.tabs {
+	display: flex;
+	height: 100%;
+	justify-content: flex-start;
+	position: relative;
+
+	.tablinks {
+		display: flex;
+		align-items: center;
+		color: rgba(255,255,255,0.7);
+		font-size: 0.9em;
+		margin: 10px;
+		text-transform: uppercase;
+	}
+	
+	.active {
+		color: white;
+	}
+	.tabselector {
+		position: absolute;
+		bottom: 0px;
+		z-index: 1;
+		height: 2px;
+		background-color: white;
+		-webkit-transition: 0.3s;
+		transition: 0.3s;
+	}
+}
+.tabcontent {
+	.content {
+		display: none;
+	}
+}

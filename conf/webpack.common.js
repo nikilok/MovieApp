@@ -13,10 +13,10 @@ module.exports = {
   context: path.join(process.cwd(), 'src'), //the home directory for webpack
 
   devtool: 'source-map', // enhance debugging by adding meta info for the browser devtools
-
-  entry: {
-    app: './index.js'
-  },
+  entry: ['babel-polyfill','./index.js'],
+  // entry: {
+  //   app: './index.js'
+  // },
 
   output: {
     path: path.join(process.cwd(), 'dist'),
@@ -35,7 +35,7 @@ module.exports = {
       enforce: "pre", //to check source files, not modified by other loaders (like babel-loader)
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: "eslint-loader"
+      loader: "babel-loader"
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -62,7 +62,8 @@ module.exports = {
             // use style-loader in development
             fallback: "style-loader"
         })
-    }]
+    }
+  ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist'], {root: process.cwd()}),

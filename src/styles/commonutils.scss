@@ -1,0 +1,33 @@
+.sticky {
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position: sticky;
+  }
+	
+	.truncate {
+		white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+
+	.readmore {
+		overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+		-webkit-box-orient: vertical; 
+		position: relative;
+		
+		&:after {
+				content: 'MORE';
+				font-weight: bold;
+				background-color: white;
+				color: #216acf;
+				padding: 2px;
+				font-size: 0.8em;
+				position: absolute;
+				bottom: -2px;
+				right: 0px;
+		}
+	}
