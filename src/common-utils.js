@@ -1,6 +1,3 @@
-import { setTimeout } from "timers";
-
-
 export function updateDom(eleID, value, showElement = false) {
     const element = document.querySelector(eleID);
     if (showElement) {
