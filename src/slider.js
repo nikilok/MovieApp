@@ -7,7 +7,7 @@ export default class Slider {
         const slider = document.querySelector('#slider');
         const body = document.querySelector('body');
 
-        images.forEach(img => {
+        images.forEach(function(img) {
             img.addEventListener("click", function () {
                 if (img.className.includes('active')) {
                     slider.setAttribute("style", "");

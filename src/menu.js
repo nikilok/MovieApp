@@ -5,35 +5,35 @@ export default class Menu {
     eventHandler(element) {
         this.menu = document.querySelector(element);
         const menuLink = this.menu.getAttribute('data-menu-link');
-		this.menuContent = document.getElementById(menuLink);
-        
+        this.menuContent = document.getElementById(menuLink);
+
         this.menu.addEventListener("click", (event) => {
-			event.stopPropagation();
+            event.stopPropagation();
             const visible = this.menuContent.getAttribute("data-visible");
-            
+
             if (visible === 'false') {
                 this.showMenu();
             } else {
                 this.hideMenu();
             }
-		});
+        });
 
-		window.addEventListener("click", () => {
-			if (this.menuOpen) 
-				this.hideMenu();
-		});
+        window.addEventListener("click", () => {
+            if (this.menuOpen)
+                this.hideMenu();
+        });
     }
     showMenu() {
-		this.menuOpen = true;
+        this.menuOpen = true;
         this.menuContent.setAttribute("style", this.getPosition());
         this.menuContent.setAttribute("data-visible", "true");
     }
     hideMenu() {
-		this.menuOpen = false;
+        this.menuOpen = false;
         this.menuContent.setAttribute("style", "display:none");
         this.menuContent.setAttribute("data-visible", "false");
     }
-    
+
     getPosition() {
         const menuTop = this.menu.offsetTop;
         const menuLeft = this.menu.offsetLeft;
