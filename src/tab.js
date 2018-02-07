@@ -13,25 +13,15 @@ export default class Tabs {
         this.showTab(activetab);
 
         tabs.forEach(tab => {
-            tab.addEventListener("click", function () {
-                const selectedTab = this.selectedTab;
-                const allTabs = this.allTabs;
-
-                allTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(tab => {
                     tab.classList.remove('active');
                     this.hideTab(tab);
                 });
-                this.showTab(selectedTab);
-                selectedTab.classList.add('active');
-                updateDomWidthLeft(this.selectedTab, this.tail);
-
-            }.bind({
-                allTabs: tabs,
-                selectedTab: tab,
-                tail: tabtail,
-                showTab: this.showTab,
-                hideTab: this.hideTab
-            }));
+                this.showTab(tab);
+                tab.classList.add('active');
+                updateDomWidthLeft(tab, tabtail);
+            });
         })
     }
 
